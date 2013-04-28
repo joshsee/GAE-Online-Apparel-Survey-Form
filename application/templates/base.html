@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
+    <title>{% block title%}CMS{% endblock %}</title>
+    <link href="/static/css/bootstrap.css" rel="stylesheet" />
+    <link href="/static/css/bootstrap-responsive.css" rel="stylesheet" />
+    <link href="/static/css/main.css" rel="stylesheet" />
+    <link rel="shortcut icon" href="/static/img/favicon.ico" />
+    {% block style_block %}<!-- page-specific CSS -->{% endblock %}
+    <script src="/static/js/lib/modernizr-2.5.3.min.js"></script><!-- Modernizr must be here, above body tag. -->
+    {% block head_script %}<!-- defer-incapable JS block -->{% endblock %}
+
+</head>
+
+<body>
+    <div class="container-fluid" id="header">
+        <div class="row-fluid">
+        {% include 'includes/nav.html' %} {# pull in navbar #}
+        </div>
+    </div>
+    <div class="container-fluid" id="maincontent">
+        <div class="row-fluid" id="body_content">
+            <div class="span12">
+            {% block content %}<!-- main content area -->{% endblock %}
+            </div>
+        </div>
+    </div><!-- /container -->
+
+    <footer>
+        <div id="footer" class="container-fluid" style="height: 500px">
+            {% block footer %}<!-- footer -->{% endblock %}
+        </div><!-- /footer -->
+    </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script src="/static/js/lib/bootstrap.js"></script>
+    <script src="/static/js/main.js"></script>
+    {% block tail_script %}<!-- defer-capable JS block -->{% endblock %}
+
+</body>
+</html>
+

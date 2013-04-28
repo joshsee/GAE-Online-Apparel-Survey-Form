@@ -1,0 +1,84 @@
+<div class="modal fade" id="new-app-modal">
+    <div class="modal-header">
+        <button class="close" data-dismiss="modal">×</button>
+        <h3>Add a New app</h3>
+    </div>
+    <div class="modal-body">
+        <form id="new-app-form" class="well form-horizontal" action="{{ url_for('apps') }}" method="post" accept-charset="utf-8" enctype=multipart/form-data>
+            <fieldset>
+                {{ form.hidden_tag() }}
+                <div class="control-group">
+                    <div class="control-label">{{ form.app_title.label }}</div>
+                    <div class="controls">
+                        {{ form.app_title|safe }}
+                        {% if form.app_title.errors %}
+                        <ul class="errors">
+                            {% for error in form.app_title.errors %}
+                            <li>{{ error }}</li>
+                            {% endfor %}
+                        </ul>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="control-group">
+                    <div class="control-label">{{ form.app_category.label }}</div>
+                    <div class="controls">
+                        {{ form.app_category|safe }}
+						{% if form.app_category.errors %}
+                        <ul class="errors">
+                            {% for error in form.app_category.errors %}
+                            <li>{{ error }}</li>
+                            {% endfor %}
+                        </ul>
+                        {% endif %}
+                    </div>
+                </div>
+				<div class="control-group">
+                    <div class="control-label">{{ form.app_url.label }}</div>
+                    <div class="controls">
+                        {{ form.app_url|safe }}
+                        {% if form.app_url.errors %}
+                        <ul class="errors">
+                            {% for error in form.url.errors %}
+                            <li>{{ error }}</li>
+                            {% endfor %}
+                        </ul>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="control-group">
+                    <div class="control-label">{{ form.app_link.label }}</div>
+                    <div class="controls">
+                        {{ form.app_link|safe }}
+                        {% if form.app_link.errors %}
+                        <ul class="errors">
+                            {% for error in form.app_link.errors %}
+                            <li>{{ error }}</li>
+                            {% endfor %}
+                        </ul>
+                        {% endif %}
+                    </div>
+                </div>
+				<div class="control-group">
+                    <div class="control-label">{{ form.exclusive.label }}</div>
+                    <div class="controls">
+                        {{ form.exclusive|safe }}
+                    </div>
+                </div>
+				<div class="control-group">
+                    <div class="control-label">{{ form.new.label }}</div>
+                    <div class="controls">
+                        {{ form.new|safe }}
+                    </div>
+                </div>
+                <div class="control-group">
+                    <div class="controls">
+                        <input class="btn btn-primary" type="submit" value="Add app"/>
+                        <button class="btn" data-dismiss="modal">Cancel</button>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</div>
+

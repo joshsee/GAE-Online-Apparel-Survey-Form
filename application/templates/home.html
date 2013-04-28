@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+
+{% block style_block %}
+    <style type="text/css">
+        table.table { width: 100%; }
+    </style>
+{% endblock %}
+
+{% block content %}
+<div class='span10 offset2'>
+    <h1>Online Apparel Shops</h1>
+    <h3>web-site survey - instructions</h3>
+    <div>&nbsp;</div>
+ <div class="row-fluid">
+  <div class='span8'>
+    <p class="lead">The purpose of this questionnaire is to evaluate the quality of the web sites of two online sports shops: Wiggle and Evans Cycles. Please evaluate these sites using a 1 to 7 scale where:</p>
+    <div class="row-fluid">
+  <div class='span5 offset3'>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+              <th>Score</th>
+              <th>Meaning</th>
+            </tr>
+        </thead>
+        <tbody>
+              <tr>
+                <td>1</td>
+                <td>strongly disagree</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td>neutral</td>
+              </tr>
+              <tr>
+                <td>7</td>
+                <td>strongly agree</td>
+              </tr>
+        </tbody>
+    </table>
+  </div></div>
+    <p class="lead">You will also be asked to rate how important the quality is to you in this particular context, i.e., your sporting activities. The importance rating is on a 1 to 7 scale where:</p>
+    <div class="row-fluid">
+  <div class='span5 offset3'>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+              <th>Score</th>
+              <th>Meaning</th>
+            </tr>
+        </thead>
+        <tbody>
+              <tr>
+                <td>1</td>
+                <td>least important</td>
+              </tr>
+              <tr>
+                <td>7</td>
+                <td>most important</td>
+              </tr>
+        </tbody>
+    </table>
+     </div></div>
+    <p class="lead">There are no right or wrong answers - all that we are interested in is a number that best shows your perception of the quality of the site you are evaluating. If you feel unable to answer a question please select the 'not applicable' (n/a) option.</p>
+
+    <p class="lead">When you click the button below to start the questionnaire a new smaller window will open that contains the qualities to be evaluated. This new window controls the contents of the main window; just click on the appropriate link to change the contents of the main window to the target site or to see these instructions. You can also click on the question number to access a dictionary of quality definitions. Once you have completed the questionnaire please click the submit button and you will see a "Thank you" window.</p>
+
+  <div class="text-center">
+    <p class="lead"><strong>Start the questionnaire</strong><a class="btn" href="/survey">
+            Start
+        </a></p>
+ </div>
+    </div>
+    </div>
+  </div>
+{% endblock content %}
+
+{% block tail_script %}
+    <script>
+    </script>
+{% endblock %}

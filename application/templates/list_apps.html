@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+
+{% block style_block %}
+    <style type="text/css">
+        table.table { width: 100%; }
+    </style>
+{% endblock %}
+
+{% block content %}
+
+    <h1 id="">All Apps</h1>
+    <div>&nbsp;</div>
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Title</th>
+				<th>Category</th>
+                <th>App Picture</th>
+                <th>New</th>
+                <th>Exclusive</th>
+                <th>Link</th>
+                <th>&nbsp;</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for app in apps %}
+            {% set app_id = app.key().id() %}
+            <tr>
+                <td>{{ app.app_title }}</td>
+                <td>{{ app.app_category }}</td>
+                <td><img src="{{ url_for('get_img', app_id=app_id) }}" /></td>
+				<td>{{ app.new }}</td>
+                <td>{{ app.exclusive }}</td>
+                <td>{{ app.app_link }}</td>
+                <td>	
+                    <form method="post" action="{{ url_for('delete_app', app_id=app_id) }}">
+                        <button class="btn">Delete</button>
+                    </form>
+                </td>
+            </tr>
+            {% else %}
+            <tr><td colspan="7">No apps yet</td></tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <p>
+        <a class="btn btn-primary" data-toggle="modal" data-target="#new-app-modal">
+            <i class="icon-plus-sign icon-white"></i>
+            New app
+        </a>
+    </p>
+
+    {% include 'new_app.html' %} {# pull in new_app form (modal dialog) #}
+
+{% endblock content %}
+
+{% block tail_script %}
+    <script>
+        var FormHelpers = {
+            validate: function (form, evt) {
+                // Form validation for modal dialog
+                var app_title = form.find('#app_title').val();
+                var app_category = form.find('#app_category').val();
+				var app_url = form.find('#app_url').val();
+                if (!(app_title)) {
+                    evt.preventDefault();
+                    Utils.renderFieldErrorTooltip('#title', 'Title is required', 'right');
+                }
+            },
+            init: function () {
+                var self = this;
+                var example_form = $('#new-app-form');
+                example_form.on('submit', function (evt) {
+                    self.validate(example_form, evt)
+                });
+            }
+        };
+        $(document).ready(function() {
+            // Enable modal dialog (via Bootstrap's 'modal' plugin)
+            $('#new-app-modal').modal({'show': false});
+			$('#new-app-modal').on('hidden', function () {
+			 	$('.tooltip').hide();
+			})
+            //FormHelpers.init();
+        });
+    </script>
+{% endblock %}

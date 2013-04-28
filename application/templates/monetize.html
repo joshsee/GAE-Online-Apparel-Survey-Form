@@ -1,0 +1,103 @@
+{% extends "frontend_base.html" %}
+
+{% block tableid%}intro{% endblock %}
+
+{% block top_content %}
+	<td width="960" height="300" background="{{ url_for('static', filename='img/common/bg_bubble_gre.jpg') }}">
+		<table width="840" border="0" align="center" cellpadding="0" cellspacing="0">          
+			<tr>
+				<td width="480"><img src="{{ url_for('static', filename='img/advertise/title_advetise.jpg') }}" width="154" height="25" /></td>
+			</tr>
+			<tr>
+				<td height="10"></td>
+			</tr>
+			<tr>
+				<td><img src="{{ url_for('static', filename='img/advertise/title_line.jpg') }}" width="840" height="1" /></td>
+			</tr>
+			<tr>
+				<td>&nbsp;</td>
+			</tr>
+			<tr>
+				<td>
+					<table width="840" border="0" cellspacing="0" cellpadding="0">
+						<tr>
+							<td width="500" class="body" valign="top">Snap Mobile aims to provide advertisers with the best solutions to reach their audience on <br />
+                  mobile and most innovative advertising formats to effectively convey their brand message. Snap Mobile focuses exclusively on advertising on smartphones and currently focus on the iOS, Android and Mobile Internet platforms.</td>
+							<td>
+								<table width="304" border="0" align="right" cellpadding="0" cellspacing="0">
+									<tr>
+										<td width="304" height="180" background="{{ url_for('static', filename='img/advertise/frame.jpg') }}">
+											<table width="288" border="0" align="center" cellpadding="0" cellspacing="0">
+												<tr>
+													<td><img src="{{ url_for('static', filename='img/advertise/photo.jpg') }}" width="288" height="166" /></td>
+												</tr>
+											</table>
+										</td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+        </table>
+	</td>
+{% endblock %}
+
+{% block bottom_content %}
+	<tr valign="top">
+        <td width="960" height="20"><table width="960" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td height="350" background="{{ url_for('static', filename='img/common/bg_bubble_gre2.jpg') }}">
+			<table width="840" border="0" align="center" cellpadding="0" cellspacing="0">
+              <tr>
+                <td valign="top"><table width="840" border="0" cellspacing="0" cellpadding="0">
+                  <tr>
+                    <td><a href="advertise.html"><img src="{{ url_for('static', filename='img/advertise/table_title_01_g.jpg') }}" width="207" height="29" /></a></td>
+                    <td width="4" bgcolor="#49B9A3" ></td>
+                    <td><img src="{{ url_for('static', filename='img/advertise/table_title_02_w.jpg') }}" width="207" height="29" /></td>
+                    <td width="4" bgcolor="#49B9A3" td>&nbsp;</td>
+                    <td><img src="{{ url_for('static', filename='img/advertise/table_title_03_g.jpg') }}" width="207" height="29" /></td>
+                    <td td width="4"><img src="{{ url_for('static', filename='img/advertise/table_split_g.jpg') }}" width="4" height="29" /></td>
+                    <td><img src="{{ url_for('static', filename='img/advertise/table_title_04_g.jpg') }}" width="207" height="29" /></td>
+                  </tr>
+                </table></td>
+              </tr>
+              <tr>
+                <td height="400" valign="top" bgcolor="#f9f9f9"><table width="840" border="0" cellspacing="0" cellpadding="0">
+                  <tr>
+                    <td bgcolor="#f9f9f9"><table width="840" border="0" align="center" cellpadding="0" cellspacing="0">
+                       <tr>
+                        <td>&nbsp;</td>
+                        </tr>
+                      <tr>
+                        <td width="211" height="140" valign="top"><table width="780" border="0" align="center" cellpadding="0" cellspacing="0">
+                          <tr>
+                            <td align="center"><img src="{{ url_for('static', filename='img/advertise/icon_ios_iphone_big.jpg') }}" width="140" height="140" /></td>
+                            <td align="center"><img src="{{ url_for('static', filename='img/advertise/icon_ios_ipad_big.jpg') }}" width="140" height="140" /></td>
+                            <td align="center"><img src="{{ url_for('static', filename='img/advertise/icon_android_big.jpg') }}" width="140" height="140" /></td>
+                            <td align="center"><img src="{{ url_for('static', filename='img/advertise/icon_mobile_site_big.jpg') }}" width="140" height="140" /></td>
+                            <td align="center"><img src="{{ url_for('static', filename='img/advertise/icon_production_site_big.jpg') }}" width="140" height="139" /></td>
+                          </tr>
+                        </table></td>
+                        </tr>
+                        <tr>
+                        <td>&nbsp;</td>
+                        </tr>
+                      <tr>
+                        <td width="211" height="100" valign="top"><table width="740" border="0" align="center" cellpadding="0" cellspacing="0">
+                          <tr>
+                            <td><span class="body">Thank you for your interest in advertising on the Snap Mobile. Please contact us for further information on advertising packages, sponsorship opportunities or simply to discuss your next interactive media campaign.Thank you for your interest in advertising on the Snap Mobile. Please contact us for further information on advertising packages, sponsorship opportunities or simply to discuss your next interactive media campaign.Thank you for your interest in advertising on the Snap Mobile. Please contact us for further information on advertising packages, sponsorship opportunities or simply to discuss your next interactive media campaign.Thank you for your interest in advertising on the Snap Mobile. Please contact us for further information on advertising packages, sponsorship opportunities or simply to discuss your next interactive media campaign.</span></td>
+                          </tr>
+                        </table></td>
+                        </tr>
+                      </table></td>
+                  </tr>
+                </table>
+				</td>
+              </tr>
+            </table></td>
+          </tr>
+        </table></td>
+	</tr>
+{% endblock %}

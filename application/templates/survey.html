@@ -1,0 +1,138 @@
+{% extends "base.html" %}
+
+{% block style_block %}
+<style type="text/css">
+table.table { width: 100%; }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class='span12'>
+    <dl>
+        <dt><p class='lead'><strong>Please evaluate the sports shop web sites:</strong></p></dt>
+        <dd><p>1=strongly disagree and 7=strongly agree</p>
+            <p>1=least important and 7=most important</p></dd>
+        </dl>
+        <dl>
+            <dt><p class='lead'><strong>Tasks</strong></p></dt>
+            <dd><p>To become familiar with the site, please find the following items and add them to the shopping basket:</p>
+                <ul>
+                    <li>adult cycling helmet</li>
+                </ul></dd>
+            </dl>
+            <p class='lead'><strong>To see the sites</strong> in the target window, just click on the underlined link. Click on the question number to get more information about the quality being evaluated.</p>
+            <form id="new-app-form" class="form-horizontal" action="{{ url_for('survey') }}" method="post" accept-charset="utf-8" enctype=multipart/form-data>
+                <fieldset>
+                    {{ form.hidden_tag() }}
+                    <ol>
+                        <li>
+                            I find the site easy to learn to operate
+                            {% if form.gap_one.errors %}
+                            <ul class="errors">
+                                {% for error in form.gap_one.errors %}
+                                <li>{{ error }}</li>
+                                {% endfor %}
+                            </ul>
+                            {% endif %}
+                            {% if form.importance_one.errors %}
+                            <ul class="errors">
+                                {% for error in form.importance_one.errors %}
+                                <li>{{ error }}</li>
+                                {% endfor %}
+                            </ul>
+                            {% endif %}
+                            <table class="table table-condensed">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>1</th>
+                                        <th>2</th>
+                                        <th>3</th>
+                                        <th>4</th>
+                                        <th>5</th>
+                                        <th>6</th>
+                                        <th>7</th>
+                                        <th>n/a</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>GAP</td>
+                                        {% for subfield in form.gap_one %}
+                                        <td>
+                                            {{ subfield }}
+                                        </td>
+                                        {% endfor %}
+                                    </tr>
+                                    <tr>
+                                        <td>Importance</td>
+                                        {% for subfield in form.importance_one %}
+                                        <td>
+                                            {{ subfield }}
+                                        </td>
+                                        {% endfor %}
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </li>
+                        <li>
+                            My interaction with the site is clear and understandable
+                            {% if form.gap_two.errors %}
+                            <ul class="errors">
+                                {% for error in form.gap_two.errors %}
+                                <li>{{ error }}</li>
+                                {% endfor %}
+                            </ul>
+                            {% endif %}
+                            {% if form.importance_two.errors %}
+                            <ul class="errors">
+                                {% for error in form.importance_two.errors %}
+                                <li>{{ error }}</li>
+                                {% endfor %}
+                            </ul>
+                            {% endif %}
+                            <table class="table table-condensed">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>1</th>
+                                        <th>2</th>
+                                        <th>3</th>
+                                        <th>4</th>
+                                        <th>5</th>
+                                        <th>6</th>
+                                        <th>7</th>
+                                        <th>n/a</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>GAP</td>
+                                        {% for subfield in form.gap_two %}
+                                        <td>
+                                            {{ subfield }}
+                                        </td>
+                                        {% endfor %}
+                                    </tr>
+                                    <tr>
+                                        <td>Importance</td>
+                                        {% for subfield in form.importance_two %}
+                                        <td>
+                                            {{ subfield }}
+                                        </td>
+                                        {% endfor %}
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </li>
+                    </ol>
+                    <div class="control-group">
+                    <div class="controls">
+                        <button class="btn">Reset</button>
+                        <input class="btn btn-primary" type="submit" value="Submit Questionnaire"/>
+                    </div>
+                </div>
+                </fieldset>
+            </form>
+        </div>
+        {% endblock content %}

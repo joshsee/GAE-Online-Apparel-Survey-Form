@@ -33,12 +33,7 @@ class Survey(db.Model):
     """Survey Model"""
     timestamp = db.DateTimeProperty(auto_now_add=True)
     sex = db.StringProperty(required=True, choices=set(["male", "female"]))
-    age = db.IntegerProperty(required=True)
-
-
-class Answer(db.Model):
-    """Question Model"""
-    survey = db.ReferenceProperty(Survey)
-    question = db.IntegerProperty(required=True)
-    sub_question = db.IntegerProperty(required=True)
-    rating = db.RatingProperty(required=True)
+    gap_one = db.RatingProperty(required=True)
+    importance_one = db.RatingProperty(required=True)
+    gap_two = db.RatingProperty(required=True)
+    importance_two = db.RatingProperty(required=True)

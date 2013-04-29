@@ -21,7 +21,7 @@ table.table { width: 100%; }
                 </ul></dd>
             </dl>
             <p class='lead'><strong>To see the sites</strong> in the target window, just click on the underlined link. Click on the question number to get more information about the quality being evaluated.</p>
-            <form id="new-app-form" class="form-horizontal" action="{{ url_for('survey') }}" method="post" accept-charset="utf-8" enctype=multipart/form-data>
+            <form id="new-app-form" class="form-horizontal" action="{{ url_for('survey') }}" method="post" accept-charset="utf-8">
                 <fieldset>
                     {{ form.hidden_tag() }}
                     <ol>
@@ -126,6 +126,11 @@ table.table { width: 100%; }
                             </table>
                         </li>
                     </ol>
+                    {% for subfield in form.sex %}
+                    <label class="checkbox inline">
+                         {{ subfield }} {{ subfield.label }}
+                    </label>
+                    {% endfor %}
                     <div class="control-group">
                     <div class="controls">
                         <button class="btn">Reset</button>

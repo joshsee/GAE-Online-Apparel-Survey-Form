@@ -23,7 +23,7 @@ from flask import render_template, flash, url_for, redirect, request
 
 from werkzeug import secure_filename
 
-from models import Survey, Answer
+from models import Survey
 from decorators import admin_required
 from forms import SurveyForm
 
@@ -34,6 +34,21 @@ def home():
 
 def survey():
     form = SurveyForm()
+    if form.validate_on_submit():
+        survey = Survey(
+            sex=form.sex.data,
+            gap_one=int(form.gap_one.data),
+            importance_one=int(form.importance_one.data),
+            gap_two=int(form.gap_two.data),
+            importance_two=int(form.importance_two.data)
+        )
+        try:
+            survey.put()
+            flash(u'Thank you', 'success')
+            return redirect(url_for('home'))
+        except CapabilityDisabledError:
+            flash(u'App Engine Datastore is currently in read-only mode.', 'info')
+            return redirect(url_for('list_examples'))
     return render_template('survey.html', form=form)
 
 """

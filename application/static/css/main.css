@@ -2,3 +2,14 @@
 /* Main stylesheet */
 
 /* Your customizations here */
+.sex label, .purchase label{
+	display: inline;
+}
+
+.form-horizontal .control-label{
+	width: 400px;
+}
+
+.form-horizontal .controls{
+	margin-left: 430px;
+}

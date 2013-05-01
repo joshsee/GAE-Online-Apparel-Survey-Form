@@ -7,40 +7,24 @@ table.table { width: 100%; }
 {% endblock %}
 
 {% block content %}
-<div class='span12'>
+<div class='span12 tooltips'>
+    <h1 class="text-info">Instructions</h1>
     <dl>
-        <dt><p class='lead'><strong>Please evaluate the sports shop web sites:</strong></p></dt>
+        <dt><p class='lead'><strong>Please evaluate the <a href='http://www.gap.com' target='_blank'>Gap.com</a> web sites:</strong></p></dt>
         <dd><p>1=strongly disagree and 7=strongly agree</p>
             <p>1=least important and 7=most important</p></dd>
         </dl>
         <dl>
             <dt><p class='lead'><strong>Tasks</strong></p></dt>
-            <dd><p>To become familiar with the site, please find the following items and add them to the shopping basket:</p>
-                <ul>
-                    <li>adult cycling helmet</li>
-                </ul></dd>
+            <dd><p>To become familiar with the site - <a href='http://www.gap.com' target='_blank'>Gap.com</a>, imgine you are searching for a gift for your friends birthday and add it to the shopping basket before you start the questionnaire.</p>
             </dl>
-            <p class='lead'><strong>To see the sites</strong> in the target window, just click on the underlined link. Click on the question number to get more information about the quality being evaluated.</p>
+            <p class="text-info"><i class="icon-info-sign"></i> <strong>To see the site</strong>, just click on the underlined link. A new window or tab will pop out. Hover over the questions to get more information about the quality being evaluated.</p>
             <form id="new-app-form" class="form-horizontal" action="{{ url_for('survey') }}" method="post" accept-charset="utf-8">
                 <fieldset>
                     {{ form.hidden_tag() }}
                     <ol>
                         <li>
-                            I find the site easy to learn to operate
-                            {% if form.gap_one.errors %}
-                            <ul class="errors">
-                                {% for error in form.gap_one.errors %}
-                                <li>{{ error }}</li>
-                                {% endfor %}
-                            </ul>
-                            {% endif %}
-                            {% if form.importance_one.errors %}
-                            <ul class="errors">
-                                {% for error in form.importance_one.errors %}
-                                <li>{{ error }}</li>
-                                {% endfor %}
-                            </ul>
-                            {% endif %}
+                            <a title="" data-placement="right" data-toggle="tooltip" href="#" data-original-title="Is it easy to grasp the functionality of the site? Is the way the site works intuitive? Are some of the facilities complex or difficult to get the hang of?">I find the site easy to learn to operate</a>
                             <table class="table table-condensed">
                                 <thead>
                                     <tr>
@@ -53,44 +37,103 @@ table.table { width: 100%; }
                                         <th>6</th>
                                         <th>7</th>
                                         <th>n/a</th>
+                                        <th style='width: 150px'></th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>GAP</td>
-                                        {% for subfield in form.gap_one %}
+                                    <tr {% if form.q01_1.errors %}class="error"{% endif %}>
+                                        <td><a href='http://www.gap.com' target='_blank'><a href='http://www.gap.com' target='_blank'>Gap.com</a></a></td>
+                                        {% for subfield in form.q01_1 %}
                                         <td>
                                             {{ subfield }}
                                         </td>
                                         {% endfor %}
+                                        <td>
+                                            {% if form.q01_1.errors %}
+                                            <div class="control-group error">
+                                                {% for error in form.q01_1.errors %}
+                                                <span class="help-inline">{{ error }}</span>
+                                                {% endfor %}
+                                            </div>
+                                            {% endif %}
+                                        </td>
                                     </tr>
-                                    <tr>
-                                        <td>Importance</td>
-                                        {% for subfield in form.importance_one %}
+                                    <tr {% if form.q01_2.errors %}class="error"{% endif %}>
+                                        <td><a href="#" data-placement="right" data-toggle="popover" data-content="1 = least important <br/> 7 = most important" data-original-title="Importance Ranting">Importance</a></td>
+                                        {% for subfield in form.q01_2 %}
                                         <td>
                                             {{ subfield }}
                                         </td>
                                         {% endfor %}
+                                        <td>
+                                            {% if form.q01_2.errors %}
+                                            <div class="control-group error">
+                                                {% for error in form.q01_2.errors %}
+                                                <span class="help-inline">{{ error }}</span>
+                                                {% endfor %}
+                                            </div>
+                                            {% endif %}
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </li>
+                        <li><a title="" data-placement="right" data-toggle="tooltip" href="#" data-original-title="Is it easy to gauge what will happen when a button is pressed or a link is clicked? Is it easy to comprehend what the different parts of the site are intended to do?">My interaction with the site is clear and understandable</a>
+                            <table class="table table-condensed">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>1</th>
+                                        <th>2</th>
+                                        <th>3</th>
+                                        <th>4</th>
+                                        <th>5</th>
+                                        <th>6</th>
+                                        <th>7</th>
+                                        <th>n/a</th>
+                                        <th style='width: 150px'></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr {% if form.q02_1.errors %}class="error"{% endif %}>
+                                        <td><a href='http://www.gap.com' target='_blank'>Gap.com</a></td>
+                                        {% for subfield in form.q02_1 %}
+                                        <td>
+                                            {{ subfield }}
+                                        </td>
+                                        {% endfor %}
+                                        <td>
+                                            {% if form.q02_1.errors %}
+                                            <div class="control-group error">
+                                                {% for error in form.q02_1.errors %}
+                                                <span class="help-inline">{{ error }}</span>
+                                                {% endfor %}
+                                            </div>
+                                            {% endif %}
+                                        </td>
+                                    </tr>
+                                    <tr {% if form.q02_2.errors %}class="error"{% endif %}>
+                                        <td><a href="#" data-placement="right" data-toggle="popover" data-content="1 = least important <br/> 7 = most important" data-original-title="Importance rating">Importance</a></td>
+                                        {% for subfield in form.q02_2 %}
+                                        <td>
+                                            {{ subfield }}
+                                        </td>
+                                        {% endfor %}
+                                        <td>
+                                            {% if form.q02_2.errors %}
+                                            <div class="control-group error">
+                                                {% for error in form.q02_2.errors %}
+                                                <span class="help-inline">{{ error }}</span>
+                                                {% endfor %}
+                                            </div>
+                                            {% endif %}
+                                        </td>
                                     </tr>
                                 </tbody>
                             </table>
                         </li>
                         <li>
-                            My interaction with the site is clear and understandable
-                            {% if form.gap_two.errors %}
-                            <ul class="errors">
-                                {% for error in form.gap_two.errors %}
-                                <li>{{ error }}</li>
-                                {% endfor %}
-                            </ul>
-                            {% endif %}
-                            {% if form.importance_two.errors %}
-                            <ul class="errors">
-                                {% for error in form.importance_two.errors %}
-                                <li>{{ error }}</li>
-                                {% endfor %}
-                            </ul>
-                            {% endif %}
+                            <a title="" data-placement="right" data-toggle="tooltip" href="#" data-original-title="Is it easy and quick to get around the site and to find things? Does the site follow the conventions of web site design (e.g., a search facility and a site map would be expected)? Do you get lost in hyperspace? Do you get frustrated using the site?">I find the site easy to navigate</a>
                             <table class="table table-condensed">
                                 <thead>
                                     <tr>
@@ -103,41 +146,1497 @@ table.table { width: 100%; }
                                         <th>6</th>
                                         <th>7</th>
                                         <th>n/a</th>
+                                        <th style='width: 150px'></th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>GAP</td>
-                                        {% for subfield in form.gap_two %}
+                                    <tr {% if form.q03_1.errors %}class="error"{% endif %}>
+                                        <td><a href='http://www.gap.com' target='_blank'>Gap.com</a></td>
+                                        {% for subfield in form.q03_1 %}
                                         <td>
                                             {{ subfield }}
                                         </td>
                                         {% endfor %}
+                                        <td>
+                                            {% if form.q03_1.errors %}
+                                            <div class="control-group error">
+                                                {% for error in form.q03_1.errors %}
+                                                <span class="help-inline">{{ error }}</span>
+                                                {% endfor %}
+                                            </div>
+                                            {% endif %}
+                                        </td>
                                     </tr>
-                                    <tr>
-                                        <td>Importance</td>
-                                        {% for subfield in form.importance_two %}
+                                    <tr {% if form.q03_2.errors %}class="error"{% endif %}>
+                                        <td><a href="#" data-placement="right" data-toggle="popover" data-content="1 = least important <br/> 7 = most important" data-original-title="Importance rating">Importance</a></td>
+                                        {% for subfield in form.q03_2 %}
                                         <td>
                                             {{ subfield }}
                                         </td>
                                         {% endfor %}
+                                        <td>
+                                            {% if form.q03_2.errors %}
+                                            <div class="control-group error">
+                                                {% for error in form.q03_2.errors %}
+                                                <span class="help-inline">{{ error }}</span>
+                                                {% endfor %}
+                                            </div>
+                                            {% endif %}
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </li>
+                        <li><a title="" data-placement="right" data-toggle="tooltip" href="#" data-original-title="Is there an effective search engine? A site map? How quickly can you find what you are looking for?">It is easy to find things on the site</a>
+                            <table class="table table-condensed">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>1</th>
+                                        <th>2</th>
+                                        <th>3</th>
+                                        <th>4</th>
+                                        <th>5</th>
+                                        <th>6</th>
+                                        <th>7</th>
+                                        <th>n/a</th>
+                                        <th style='width: 150px'></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr {% if form.q04_1.errors %}class="error"{% endif %}>
+                                        <td><a href='http://www.gap.com' target='_blank'>Gap.com</a></td>
+                                        {% for subfield in form.q04_1 %}
+                                        <td>
+                                            {{ subfield }}
+                                        </td>
+                                        {% endfor %}
+                                        <td>
+                                            {% if form.q04_1.errors %}
+                                            <div class="control-group error">
+                                                {% for error in form.q04_1.errors %}
+                                                <span class="help-inline">{{ error }}</span>
+                                                {% endfor %}
+                                            </div>
+                                            {% endif %}
+                                        </td>
+                                    </tr>
+                                    <tr {% if form.q04_2.errors %}class="error"{% endif %}>
+                                        <td><a href="#" data-placement="right" data-toggle="popover" data-content="1 = least important <br/> 7 = most important" data-original-title="Importance rating">Importance</a></td>
+                                        {% for subfield in form.q04_2 %}
+                                        <td>
+                                            {{ subfield }}
+                                        </td>
+                                        {% endfor %}
+                                        <td>
+                                            {% if form.q04_2.errors %}
+                                            <div class="control-group error">
+                                                {% for error in form.q04_2.errors %}
+                                                <span class="help-inline">{{ error }}</span>
+                                                {% endfor %}
+                                            </div>
+                                            {% endif %}
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </li>
+                        <li><a title="" data-placement="right" data-toggle="tooltip" href="#" data-original-title="How quickly do the pages load? Are there animations and large graphics that slow the site down? Do data and process intensive operations such as searches and shopping baskets take a long time?">The site has a fast response time</a>
+                            <table class="table table-condensed">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>1</th>
+                                        <th>2</th>
+                                        <th>3</th>
+                                        <th>4</th>
+                                        <th>5</th>
+                                        <th>6</th>
+                                        <th>7</th>
+                                        <th>n/a</th>
+                                        <th style='width: 150px'></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr {% if form.q05_1.errors %}class="error"{% endif %}>
+                                        <td><a href='http://www.gap.com' target='_blank'>Gap.com</a></td>
+                                        {% for subfield in form.q05_1 %}
+                                        <td>
+                                            {{ subfield }}
+                                        </td>
+                                        {% endfor %}
+                                        <td>
+                                            {% if form.q05_1.errors %}
+                                            <div class="control-group error">
+                                                {% for error in form.q05_1.errors %}
+                                                <span class="help-inline">{{ error }}</span>
+                                                {% endfor %}
+                                            </div>
+                                            {% endif %}
+                                        </td>
+                                    </tr>
+                                    <tr {% if form.q05_2.errors %}class="error"{% endif %}>
+                                        <td><a href="#" data-placement="right" data-toggle="popover" data-content="1 = least important <br/> 7 = most important" data-original-title="Importance rating">Importance</a></td>
+                                        {% for subfield in form.q05_2 %}
+                                        <td>
+                                            {{ subfield }}
+                                        </td>
+                                        {% endfor %}
+                                        <td>
+                                            {% if form.q05_2.errors %}
+                                            <div class="control-group error">
+                                                {% for error in form.q05_2.errors %}
+                                                <span class="help-inline">{{ error }}</span>
+                                                {% endfor %}
+                                            </div>
+                                            {% endif %}
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </li>
+                        <li><a title="" data-placement="right" data-toggle="tooltip" href="#" data-original-title="Overall, is it easy to use the site? Is it easy to learn, easy to interact with, and easy to navigate?">I find the site easy to use</a>
+                            <table class="table table-condensed">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>1</th>
+                                        <th>2</th>
+                                        <th>3</th>
+                                        <th>4</th>
+                                        <th>5</th>
+                                        <th>6</th>
+                                        <th>7</th>
+                                        <th>n/a</th>
+                                        <th style='width: 150px'></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr {% if form.q06_1.errors %}class="error"{% endif %}>
+                                        <td><a href='http://www.gap.com' target='_blank'>Gap.com</a></td>
+                                        {% for subfield in form.q06_1 %}
+                                        <td>
+                                            {{ subfield }}
+                                        </td>
+                                        {% endfor %}
+                                        <td>
+                                            {% if form.q06_1.errors %}
+                                            <div class="control-group error">
+                                                {% for error in form.q06_1.errors %}
+                                                <span class="help-inline">{{ error }}</span>
+                                                {% endfor %}
+                                            </div>
+                                            {% endif %}
+                                        </td>
+                                    </tr>
+                                    <tr {% if form.q06_2.errors %}class="error"{% endif %}>
+                                        <td><a href="#" data-placement="right" data-toggle="popover" data-content="1 = least important <br/> 7 = most important" data-original-title="Importance rating">Importance</a></td>
+                                        {% for subfield in form.q06_2 %}
+                                        <td>
+                                            {{ subfield }}
+                                        </td>
+                                        {% endfor %}
+                                        <td>
+                                            {% if form.q06_2.errors %}
+                                            <div class="control-group error">
+                                                {% for error in form.q06_2.errors %}
+                                                <span class="help-inline">{{ error }}</span>
+                                                {% endfor %}
+                                            </div>
+                                            {% endif %}
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </li>
+                        <li><a title="" data-placement="right" data-toggle="tooltip" href="#" data-original-title="Is the design of the site aesthetically pleasing? For example, are the colour schemes, design templates and graphics appealing?">The site has an attractive appearance</a>
+                            <table class="table table-condensed">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>1</th>
+                                        <th>2</th>
+                                        <th>3</th>
+                                        <th>4</th>
+                                        <th>5</th>
+                                        <th>6</th>
+                                        <th>7</th>
+                                        <th>n/a</th>
+                                        <th style='width: 150px'></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr {% if form.q07_1.errors %}class="error"{% endif %}>
+                                        <td><a href='http://www.gap.com' target='_blank'>Gap.com</a></td>
+                                        {% for subfield in form.q07_1 %}
+                                        <td>
+                                            {{ subfield }}
+                                        </td>
+                                        {% endfor %}
+                                        <td>
+                                            {% if form.q07_1.errors %}
+                                            <div class="control-group error">
+                                                {% for error in form.q07_1.errors %}
+                                                <span class="help-inline">{{ error }}</span>
+                                                {% endfor %}
+                                            </div>
+                                            {% endif %}
+                                        </td>
+                                    </tr>
+                                    <tr {% if form.q07_2.errors %}class="error"{% endif %}>
+                                        <td><a href="#" data-placement="right" data-toggle="popover" data-content="1 = least important <br/> 7 = most important" data-original-title="Importance rating">Importance</a></td>
+                                        {% for subfield in form.q07_2 %}
+                                        <td>
+                                            {{ subfield }}
+                                        </td>
+                                        {% endfor %}
+                                        <td>
+                                            {% if form.q07_2.errors %}
+                                            <div class="control-group error">
+                                                {% for error in form.q07_2.errors %}
+                                                <span class="help-inline">{{ error }}</span>
+                                                {% endfor %}
+                                            </div>
+                                            {% endif %}
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </li>
+                        <li><a title="" data-placement="right" data-toggle="tooltip" href="#" data-original-title="Is the look and feel of the site appropriate for the content and purpose of the site? For example, you might expect a financial services site to have a different style to a site selling music CDs.">The design is appropriate to the type of site</a>
+                            <table class="table table-condensed">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>1</th>
+                                        <th>2</th>
+                                        <th>3</th>
+                                        <th>4</th>
+                                        <th>5</th>
+                                        <th>6</th>
+                                        <th>7</th>
+                                        <th>n/a</th>
+                                        <th style='width: 150px'></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr {% if form.q08_1.errors %}class="error"{% endif %}>
+                                        <td><a href='http://www.gap.com' target='_blank'>Gap.com</a></td>
+                                        {% for subfield in form.q08_1 %}
+                                        <td>
+                                            {{ subfield }}
+                                        </td>
+                                        {% endfor %}
+                                        <td>
+                                            {% if form.q08_1.errors %}
+                                            <div class="control-group error">
+                                                {% for error in form.q08_1.errors %}
+                                                <span class="help-inline">{{ error }}</span>
+                                                {% endfor %}
+                                            </div>
+                                            {% endif %}
+                                        </td>
+                                    </tr>
+                                    <tr {% if form.q08_2.errors %}class="error"{% endif %}>
+                                        <td><a href="#" data-placement="right" data-toggle="popover" data-content="1 = least important <br/> 7 = most important" data-original-title="Importance rating">Importance</a></td>
+                                        {% for subfield in form.q08_2 %}
+                                        <td>
+                                            {{ subfield }}
+                                        </td>
+                                        {% endfor %}
+                                        <td>
+                                            {% if form.q08_2.errors %}
+                                            <div class="control-group error">
+                                                {% for error in form.q08_2.errors %}
+                                                <span class="help-inline">{{ error }}</span>
+                                                {% endfor %}
+                                            </div>
+                                            {% endif %}
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </li>
+                        <li><a title="" data-placement="right" data-toggle="tooltip" href="#" data-original-title="Does the site convey a sense of professionalism and competency? For example, broken links and misspellings might indicate inadequate site management.">The site design conveys a sense of competency</a>
+                            <table class="table table-condensed">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>1</th>
+                                        <th>2</th>
+                                        <th>3</th>
+                                        <th>4</th>
+                                        <th>5</th>
+                                        <th>6</th>
+                                        <th>7</th>
+                                        <th>n/a</th>
+                                        <th style='width: 150px'></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr {% if form.q09_1.errors %}class="error"{% endif %}>
+                                        <td><a href='http://www.gap.com' target='_blank'>Gap.com</a></td>
+                                        {% for subfield in form.q09_1 %}
+                                        <td>
+                                            {{ subfield }}
+                                        </td>
+                                        {% endfor %}
+                                        <td>
+                                            {% if form.q09_1.errors %}
+                                            <div class="control-group error">
+                                                {% for error in form.q09_1.errors %}
+                                                <span class="help-inline">{{ error }}</span>
+                                                {% endfor %}
+                                            </div>
+                                            {% endif %}
+                                        </td>
+                                    </tr>
+                                    <tr {% if form.q09_2.errors %}class="error"{% endif %}>
+                                        <td><a href="#" data-placement="right" data-toggle="popover" data-content="1 = least important <br/> 7 = most important" data-original-title="Importance rating">Importance</a></td>
+                                        {% for subfield in form.q09_2 %}
+                                        <td>
+                                            {{ subfield }}
+                                        </td>
+                                        {% endfor %}
+                                        <td>
+                                            {% if form.q09_2.errors %}
+                                            <div class="control-group error">
+                                                {% for error in form.q09_2.errors %}
+                                                <span class="help-inline">{{ error }}</span>
+                                                {% endfor %}
+                                            </div>
+                                            {% endif %}
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </li>
+                        <li><a title="" data-placement="right" data-toggle="tooltip" href="#" data-original-title="Does the site create an enjoyable experience? Such qualities could include being interesting, entertaining, fun or informative, and might involve good use of multimedia.">The site creates a positive experience for me</a>
+                            <table class="table table-condensed">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>1</th>
+                                        <th>2</th>
+                                        <th>3</th>
+                                        <th>4</th>
+                                        <th>5</th>
+                                        <th>6</th>
+                                        <th>7</th>
+                                        <th>n/a</th>
+                                        <th style='width: 150px'></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr {% if form.q10_1.errors %}class="error"{% endif %}>
+                                        <td><a href='http://www.gap.com' target='_blank'>Gap.com</a></td>
+                                        {% for subfield in form.q10_1 %}
+                                        <td>
+                                            {{ subfield }}
+                                        </td>
+                                        {% endfor %}
+                                        <td>
+                                            {% if form.q10_1.errors %}
+                                            <div class="control-group error">
+                                                {% for error in form.q10_1.errors %}
+                                                <span class="help-inline">{{ error }}</span>
+                                                {% endfor %}
+                                            </div>
+                                            {% endif %}
+                                        </td>
+                                    </tr>
+                                    <tr {% if form.q10_2.errors %}class="error"{% endif %}>
+                                        <td><a href="#" data-placement="right" data-toggle="popover" data-content="1 = least important <br/> 7 = most important" data-original-title="Importance rating">Importance</a></td>
+                                        {% for subfield in form.q10_2 %}
+                                        <td>
+                                            {{ subfield }}
+                                        </td>
+                                        {% endfor %}
+                                        <td>
+                                            {% if form.q10_2.errors %}
+                                            <div class="control-group error">
+                                                {% for error in form.q10_2.errors %}
+                                                <span class="help-inline">{{ error }}</span>
+                                                {% endfor %}
+                                            </div>
+                                            {% endif %}
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </li>
+                        <li><a title="" data-placement="right" data-toggle="tooltip" href="#" data-original-title="The information is free from errors and accurate at the time it relates to. For example, an up-to-date and accurate price would be needed for a share transaction with an online broker.">Provides accurate information</a>
+                            <table class="table table-condensed">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>1</th>
+                                        <th>2</th>
+                                        <th>3</th>
+                                        <th>4</th>
+                                        <th>5</th>
+                                        <th>6</th>
+                                        <th>7</th>
+                                        <th>n/a</th>
+                                        <th style='width: 150px'></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr {% if form.q11_1.errors %}class="error"{% endif %}>
+                                        <td><a href='http://www.gap.com' target='_blank'>Gap.com</a></td>
+                                        {% for subfield in form.q11_1 %}
+                                        <td>
+                                            {{ subfield }}
+                                        </td>
+                                        {% endfor %}
+                                        <td>
+                                            {% if form.q11_1.errors %}
+                                            <div class="control-group error">
+                                                {% for error in form.q11_1.errors %}
+                                                <span class="help-inline">{{ error }}</span>
+                                                {% endfor %}
+                                            </div>
+                                            {% endif %}
+                                        </td>
+                                    </tr>
+                                    <tr {% if form.q11_2.errors %}class="error"{% endif %}>
+                                        <td><a href="#" data-placement="right" data-toggle="popover" data-content="1 = least important <br/> 7 = most important" data-original-title="Importance rating">Importance</a></td>
+                                        {% for subfield in form.q11_2 %}
+                                        <td>
+                                            {{ subfield }}
+                                        </td>
+                                        {% endfor %}
+                                        <td>
+                                            {% if form.q11_2.errors %}
+                                            <div class="control-group error">
+                                                {% for error in form.q11_2.errors %}
+                                                <span class="help-inline">{{ error }}</span>
+                                                {% endfor %}
+                                            </div>
+                                            {% endif %}
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </li>
+                        <li><a title="" data-placement="right" data-toggle="tooltip" href="#" data-original-title="How credible is the data? This is particularly important when dealing with data that is not easy to quantify. For example, opinions, value judgements, aesthetics judgements, advice or forecasts.">Provides believable information</a>
+                            <table class="table table-condensed">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>1</th>
+                                        <th>2</th>
+                                        <th>3</th>
+                                        <th>4</th>
+                                        <th>5</th>
+                                        <th>6</th>
+                                        <th>7</th>
+                                        <th>n/a</th>
+                                        <th style='width: 150px'></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr {% if form.q12_1.errors %}class="error"{% endif %}>
+                                        <td><a href='http://www.gap.com' target='_blank'>Gap.com</a></td>
+                                        {% for subfield in form.q12_1 %}
+                                        <td>
+                                            {{ subfield }}
+                                        </td>
+                                        {% endfor %}
+                                        <td>
+                                            {% if form.q12_1.errors %}
+                                            <div class="control-group error">
+                                                {% for error in form.q12_1.errors %}
+                                                <span class="help-inline">{{ error }}</span>
+                                                {% endfor %}
+                                            </div>
+                                            {% endif %}
+                                        </td>
+                                    </tr>
+                                    <tr {% if form.q12_2.errors %}class="error"{% endif %}>
+                                        <td><a href="#" data-placement="right" data-toggle="popover" data-content="1 = least important <br/> 7 = most important" data-original-title="Importance rating">Importance</a></td>
+                                        {% for subfield in form.q12_2 %}
+                                        <td>
+                                            {{ subfield }}
+                                        </td>
+                                        {% endfor %}
+                                        <td>
+                                            {% if form.q12_2.errors %}
+                                            <div class="control-group error">
+                                                {% for error in form.q12_2.errors %}
+                                                <span class="help-inline">{{ error }}</span>
+                                                {% endfor %}
+                                            </div>
+                                            {% endif %}
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </li>
+                        <li><a title="" data-placement="right" data-toggle="tooltip" href="#" data-original-title="Is the information provided within the time frame needed to consume it or make decisions? For example, an online newspaper would need to cover new stories and features once or more per day.">Provides timely information</a>
+                            <table class="table table-condensed">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>1</th>
+                                        <th>2</th>
+                                        <th>3</th>
+                                        <th>4</th>
+                                        <th>5</th>
+                                        <th>6</th>
+                                        <th>7</th>
+                                        <th>n/a</th>
+                                        <th style='width: 150px'></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr {% if form.q13_1.errors %}class="error"{% endif %}>
+                                        <td><a href='http://www.gap.com' target='_blank'>Gap.com</a></td>
+                                        {% for subfield in form.q13_1 %}
+                                        <td>
+                                            {{ subfield }}
+                                        </td>
+                                        {% endfor %}
+                                        <td>
+                                            {% if form.q13_1.errors %}
+                                            <div class="control-group error">
+                                                {% for error in form.q13_1.errors %}
+                                                <span class="help-inline">{{ error }}</span>
+                                                {% endfor %}
+                                            </div>
+                                            {% endif %}
+                                        </td>
+                                    </tr>
+                                    <tr {% if form.q13_2.errors %}class="error"{% endif %}>
+                                        <td><a href="#" data-placement="right" data-toggle="popover" data-content="1 = least important <br/> 7 = most important" data-original-title="Importance rating">Importance</a></td>
+                                        {% for subfield in form.q13_2 %}
+                                        <td>
+                                            {{ subfield }}
+                                        </td>
+                                        {% endfor %}
+                                        <td>
+                                            {% if form.q13_2.errors %}
+                                            <div class="control-group error">
+                                                {% for error in form.q13_2.errors %}
+                                                <span class="help-inline">{{ error }}</span>
+                                                {% endfor %}
+                                            </div>
+                                            {% endif %}
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </li>
+                        <li><a title="" data-placement="right" data-toggle="tooltip" href="#" data-original-title="Is the information relevant to the matter at hand, e.g. a decision that needs to be made? For example, the decision to buy a book may require a price, description and reviews.">Provides relevant information</a>
+                            <table class="table table-condensed">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>1</th>
+                                        <th>2</th>
+                                        <th>3</th>
+                                        <th>4</th>
+                                        <th>5</th>
+                                        <th>6</th>
+                                        <th>7</th>
+                                        <th>n/a</th>
+                                        <th style='width: 150px'></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr {% if form.q14_1.errors %}class="error"{% endif %}>
+                                        <td><a href='http://www.gap.com' target='_blank'>Gap.com</a></td>
+                                        {% for subfield in form.q14_1 %}
+                                        <td>
+                                            {{ subfield }}
+                                        </td>
+                                        {% endfor %}
+                                        <td>
+                                            {% if form.q14_1.errors %}
+                                            <div class="control-group error">
+                                                {% for error in form.q14_1.errors %}
+                                                <span class="help-inline">{{ error }}</span>
+                                                {% endfor %}
+                                            </div>
+                                            {% endif %}
+                                        </td>
+                                    </tr>
+                                    <tr {% if form.q14_2.errors %}class="error"{% endif %}>
+                                        <td><a href="#" data-placement="right" data-toggle="popover" data-content="1 = least important <br/> 7 = most important" data-original-title="Importance rating">Importance</a></td>
+                                        {% for subfield in form.q14_2 %}
+                                        <td>
+                                            {{ subfield }}
+                                        </td>
+                                        {% endfor %}
+                                        <td>
+                                            {% if form.q14_2.errors %}
+                                            <div class="control-group error">
+                                                {% for error in form.q14_2.errors %}
+                                                <span class="help-inline">{{ error }}</span>
+                                                {% endfor %}
+                                            </div>
+                                            {% endif %}
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </li>
+                        <li><a title="" data-placement="right" data-toggle="tooltip" href="#" data-original-title="Is the information easy to comprehend? Is the language it is expressed in easily understandable?">Provides easy to understand information</a>
+                            <table class="table table-condensed">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>1</th>
+                                        <th>2</th>
+                                        <th>3</th>
+                                        <th>4</th>
+                                        <th>5</th>
+                                        <th>6</th>
+                                        <th>7</th>
+                                        <th>n/a</th>
+                                        <th style='width: 150px'></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr {% if form.q15_1.errors %}class="error"{% endif %}>
+                                        <td><a href='http://www.gap.com' target='_blank'>Gap.com</a></td>
+                                        {% for subfield in form.q15_1 %}
+                                        <td>
+                                            {{ subfield }}
+                                        </td>
+                                        {% endfor %}
+                                        <td>
+                                            {% if form.q15_1.errors %}
+                                            <div class="control-group error">
+                                                {% for error in form.q15_1.errors %}
+                                                <span class="help-inline">{{ error }}</span>
+                                                {% endfor %}
+                                            </div>
+                                            {% endif %}
+                                        </td>
+                                    </tr>
+                                    <tr {% if form.q15_2.errors %}class="error"{% endif %}>
+                                        <td><a href="#" data-placement="right" data-toggle="popover" data-content="1 = least important <br/> 7 = most important" data-original-title="Importance rating">Importance</a></td>
+                                        {% for subfield in form.q15_2 %}
+                                        <td>
+                                            {{ subfield }}
+                                        </td>
+                                        {% endfor %}
+                                        <td>
+                                            {% if form.q15_2.errors %}
+                                            <div class="control-group error">
+                                                {% for error in form.q15_2.errors %}
+                                                <span class="help-inline">{{ error }}</span>
+                                                {% endfor %}
+                                            </div>
+                                            {% endif %}
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </li>
+                        <li><a title="" data-placement="right" data-toggle="tooltip" href="#" data-original-title="Is there sufficient information? Is there too much detailed information or is it rather scant and summarized for the decision at hand?">Provides information at the right level of detail</a>
+                            <table class="table table-condensed">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>1</th>
+                                        <th>2</th>
+                                        <th>3</th>
+                                        <th>4</th>
+                                        <th>5</th>
+                                        <th>6</th>
+                                        <th>7</th>
+                                        <th>n/a</th>
+                                        <th style='width: 150px'></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr {% if form.q16_1.errors %}class="error"{% endif %}>
+                                        <td><a href='http://www.gap.com' target='_blank'>Gap.com</a></td>
+                                        {% for subfield in form.q16_1 %}
+                                        <td>
+                                            {{ subfield }}
+                                        </td>
+                                        {% endfor %}
+                                        <td>
+                                            {% if form.q16_1.errors %}
+                                            <div class="control-group error">
+                                                {% for error in form.q16_1.errors %}
+                                                <span class="help-inline">{{ error }}</span>
+                                                {% endfor %}
+                                            </div>
+                                            {% endif %}
+                                        </td>
+                                    </tr>
+                                    <tr {% if form.q16_2.errors %}class="error"{% endif %}>
+                                        <td><a href="#" data-placement="right" data-toggle="popover" data-content="1 = least important <br/> 7 = most important" data-original-title="Importance rating">Importance</a></td>
+                                        {% for subfield in form.q16_2 %}
+                                        <td>
+                                            {{ subfield }}
+                                        </td>
+                                        {% endfor %}
+                                        <td>
+                                            {% if form.q16_2.errors %}
+                                            <div class="control-group error">
+                                                {% for error in form.q16_2.errors %}
+                                                <span class="help-inline">{{ error }}</span>
+                                                {% endfor %}
+                                            </div>
+                                            {% endif %}
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </li>
+                        <li><a title="" data-placement="right" data-toggle="tooltip" href="#" data-original-title="Is the format of information in line with its intended purpose? For example, would a graph be a better way of presenting the data than text? Would a photograph or a video clip help?">Presents the information in an appropriate format</a>
+                            <table class="table table-condensed">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>1</th>
+                                        <th>2</th>
+                                        <th>3</th>
+                                        <th>4</th>
+                                        <th>5</th>
+                                        <th>6</th>
+                                        <th>7</th>
+                                        <th>n/a</th>
+                                        <th style='width: 150px'></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr {% if form.q17_1.errors %}class="error"{% endif %}>
+                                        <td><a href='http://www.gap.com' target='_blank'>Gap.com</a></td>
+                                        {% for subfield in form.q17_1 %}
+                                        <td>
+                                            {{ subfield }}
+                                        </td>
+                                        {% endfor %}
+                                        <td>
+                                            {% if form.q17_1.errors %}
+                                            <div class="control-group error">
+                                                {% for error in form.q17_1.errors %}
+                                                <span class="help-inline">{{ error }}</span>
+                                                {% endfor %}
+                                            </div>
+                                            {% endif %}
+                                        </td>
+                                    </tr>
+                                    <tr {% if form.q17_2.errors %}class="error"{% endif %}>
+                                        <td><a href="#" data-placement="right" data-toggle="popover" data-content="1 = least important <br/> 7 = most important" data-original-title="Importance rating">Importance</a></td>
+                                        {% for subfield in form.q17_2 %}
+                                        <td>
+                                            {{ subfield }}
+                                        </td>
+                                        {% endfor %}
+                                        <td>
+                                            {% if form.q17_2.errors %}
+                                            <div class="control-group error">
+                                                {% for error in form.q17_2.errors %}
+                                                <span class="help-inline">{{ error }}</span>
+                                                {% endfor %}
+                                            </div>
+                                            {% endif %}
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </li>
+                        <li><a title="" data-placement="right" data-toggle="tooltip" href="#" data-original-title="Is it well known as a 'good' site? Such reputation may come via, for example, word of mouth, third parties, or the press.">Has a good reputation</a>
+                            <table class="table table-condensed">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>1</th>
+                                        <th>2</th>
+                                        <th>3</th>
+                                        <th>4</th>
+                                        <th>5</th>
+                                        <th>6</th>
+                                        <th>7</th>
+                                        <th>n/a</th>
+                                        <th style='width: 150px'></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr {% if form.q18_1.errors %}class="error"{% endif %}>
+                                        <td><a href='http://www.gap.com' target='_blank'>Gap.com</a></td>
+                                        {% for subfield in form.q18_1 %}
+                                        <td>
+                                            {{ subfield }}
+                                        </td>
+                                        {% endfor %}
+                                        <td>
+                                            {% if form.q18_1.errors %}
+                                            <div class="control-group error">
+                                                {% for error in form.q18_1.errors %}
+                                                <span class="help-inline">{{ error }}</span>
+                                                {% endfor %}
+                                            </div>
+                                            {% endif %}
+                                        </td>
+                                    </tr>
+                                    <tr {% if form.q18_2.errors %}class="error"{% endif %}>
+                                        <td><a href="#" data-placement="right" data-toggle="popover" data-content="1 = least important <br/> 7 = most important" data-original-title="Importance rating">Importance</a></td>
+                                        {% for subfield in form.q18_2 %}
+                                        <td>
+                                            {{ subfield }}
+                                        </td>
+                                        {% endfor %}
+                                        <td>
+                                            {% if form.q18_2.errors %}
+                                            <div class="control-group error">
+                                                {% for error in form.q18_2.errors %}
+                                                <span class="help-inline">{{ error }}</span>
+                                                {% endfor %}
+                                            </div>
+                                            {% endif %}
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </li>
+                        <li><a title="" data-placement="right" data-toggle="tooltip" href="#" data-original-title="Is the proposition offered - no just the price - of the goods and services value for money. This could take into account service levels, guarantees, delivery dates, post-sales support, etc.">Provides value for money</a>
+                            <table class="table table-condensed">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>1</th>
+                                        <th>2</th>
+                                        <th>3</th>
+                                        <th>4</th>
+                                        <th>5</th>
+                                        <th>6</th>
+                                        <th>7</th>
+                                        <th>n/a</th>
+                                        <th style='width: 150px'></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr {% if form.q19_1.errors %}class="error"{% endif %}>
+                                        <td><a href='http://www.gap.com' target='_blank'>Gap.com</a></td>
+                                        {% for subfield in form.q19_1 %}
+                                        <td>
+                                            {{ subfield }}
+                                        </td>
+                                        {% endfor %}
+                                        <td>
+                                            {% if form.q19_1.errors %}
+                                            <div class="control-group error">
+                                                {% for error in form.q19_1.errors %}
+                                                <span class="help-inline">{{ error }}</span>
+                                                {% endfor %}
+                                            </div>
+                                            {% endif %}
+                                        </td>
+                                    </tr>
+                                    <tr {% if form.q19_2.errors %}class="error"{% endif %}>
+                                        <td><a href="#" data-placement="right" data-toggle="popover" data-content="1 = least important <br/> 7 = most important" data-original-title="Importance rating">Importance</a></td>
+                                        {% for subfield in form.q19_2 %}
+                                        <td>
+                                            {{ subfield }}
+                                        </td>
+                                        {% endfor %}
+                                        <td>
+                                            {% if form.q19_2.errors %}
+                                            <div class="control-group error">
+                                                {% for error in form.q19_2.errors %}
+                                                <span class="help-inline">{{ error }}</span>
+                                                {% endfor %}
+                                            </div>
+                                            {% endif %}
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </li>
+                        <li><a title="" data-placement="right" data-toggle="tooltip" href="#" data-original-title="Does it feel safe to provide credit card details and to enter into a financial transaction?">It feels safe to complete transactions</a>
+                            <table class="table table-condensed">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>1</th>
+                                        <th>2</th>
+                                        <th>3</th>
+                                        <th>4</th>
+                                        <th>5</th>
+                                        <th>6</th>
+                                        <th>7</th>
+                                        <th>n/a</th>
+                                        <th style='width: 150px'></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr {% if form.q20_1.errors %}class="error"{% endif %}>
+                                        <td><a href='http://www.gap.com' target='_blank'>Gap.com</a></td>
+                                        {% for subfield in form.q20_1 %}
+                                        <td>
+                                            {{ subfield }}
+                                        </td>
+                                        {% endfor %}
+                                        <td>
+                                            {% if form.q20_1.errors %}
+                                            <div class="control-group error">
+                                                {% for error in form.q20_1.errors %}
+                                                <span class="help-inline">{{ error }}</span>
+                                                {% endfor %}
+                                            </div>
+                                            {% endif %}
+                                        </td>
+                                    </tr>
+                                    <tr {% if form.q20_2.errors %}class="error"{% endif %}>
+                                        <td><a href="#" data-placement="right" data-toggle="popover" data-content="1 = least important <br/> 7 = most important" data-original-title="Importance rating">Importance</a></td>
+                                        {% for subfield in form.q20_2 %}
+                                        <td>
+                                            {{ subfield }}
+                                        </td>
+                                        {% endfor %}
+                                        <td>
+                                            {% if form.q20_2.errors %}
+                                            <div class="control-group error">
+                                                {% for error in form.q10_2.errors %}
+                                                <span class="help-inline">{{ error }}</span>
+                                                {% endfor %}
+                                            </div>
+                                            {% endif %}
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </li>
+                        <li><a title="" data-placement="right" data-toggle="tooltip" href="#" data-original-title="Do you feel safe committing personal data to the site? Will data be used improperly, e.g. for junk emails or sale to third parties without your permission?">My personal information feels secure</a>
+                            <table class="table table-condensed">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>1</th>
+                                        <th>2</th>
+                                        <th>3</th>
+                                        <th>4</th>
+                                        <th>5</th>
+                                        <th>6</th>
+                                        <th>7</th>
+                                        <th>n/a</th>
+                                        <th style='width: 150px'></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr {% if form.q21_1.errors %}class="error"{% endif %}>
+                                        <td><a href='http://www.gap.com' target='_blank'>Gap.com</a></td>
+                                        {% for subfield in form.q21_1 %}
+                                        <td>
+                                            {{ subfield }}
+                                        </td>
+                                        {% endfor %}
+                                        <td>
+                                            {% if form.q21_1.errors %}
+                                            <div class="control-group error">
+                                                {% for error in form.q21_1.errors %}
+                                                <span class="help-inline">{{ error }}</span>
+                                                {% endfor %}
+                                            </div>
+                                            {% endif %}
+                                        </td>
+                                    </tr>
+                                    <tr {% if form.q21_2.errors %}class="error"{% endif %}>
+                                        <td><a href="#" data-placement="right" data-toggle="popover" data-content="1 = least important <br/> 7 = most important" data-original-title="Importance rating">Importance</a></td>
+                                        {% for subfield in form.q21_2 %}
+                                        <td>
+                                            {{ subfield }}
+                                        </td>
+                                        {% endfor %}
+                                        <td>
+                                            {% if form.q21_2.errors %}
+                                            <div class="control-group error">
+                                                {% for error in form.q21_2.errors %}
+                                                <span class="help-inline">{{ error }}</span>
+                                                {% endfor %}
+                                            </div>
+                                            {% endif %}
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </li>
+                        <li><a title="" data-placement="right" data-toggle="tooltip" href="#" data-original-title="To what extent does the site allow customization? Does the site personalize content, products or prices for the individual visitor, or are all visitors treated the same?">Creates a sense of personalization</a>
+                            <table class="table table-condensed">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>1</th>
+                                        <th>2</th>
+                                        <th>3</th>
+                                        <th>4</th>
+                                        <th>5</th>
+                                        <th>6</th>
+                                        <th>7</th>
+                                        <th>n/a</th>
+                                        <th style='width: 150px'></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr {% if form.q22_1.errors %}class="error"{% endif %}>
+                                        <td><a href='http://www.gap.com' target='_blank'>Gap.com</a></td>
+                                        {% for subfield in form.q22_1 %}
+                                        <td>
+                                            {{ subfield }}
+                                        </td>
+                                        {% endfor %}
+                                        <td>
+                                            {% if form.q22_1.errors %}
+                                            <div class="control-group error">
+                                                {% for error in form.q22_1.errors %}
+                                                <span class="help-inline">{{ error }}</span>
+                                                {% endfor %}
+                                            </div>
+                                            {% endif %}
+                                        </td>
+                                    </tr>
+                                    <tr {% if form.q22_2.errors %}class="error"{% endif %}>
+                                        <td><a href="#" data-placement="right" data-toggle="popover" data-content="1 = least important <br/> 7 = most important" data-original-title="Importance rating">Importance</a></td>
+                                        {% for subfield in form.q22_2 %}
+                                        <td>
+                                            {{ subfield }}
+                                        </td>
+                                        {% endfor %}
+                                        <td>
+                                            {% if form.q22_2.errors %}
+                                            <div class="control-group error">
+                                                {% for error in form.q22_2.errors %}
+                                                <span class="help-inline">{{ error }}</span>
+                                                {% endfor %}
+                                            </div>
+                                            {% endif %}
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </li>
+                        <li><a title="" data-placement="right" data-toggle="tooltip" href="#" data-original-title="Is there a feeling of a community from the site? Is it built around a group of people with something in common? If not, it may be more fragmented, e.g. a 'hub and spokes'?">Conveys a sense of community</a>
+                            <table class="table table-condensed">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>1</th>
+                                        <th>2</th>
+                                        <th>3</th>
+                                        <th>4</th>
+                                        <th>5</th>
+                                        <th>6</th>
+                                        <th>7</th>
+                                        <th>n/a</th>
+                                        <th style='width: 150px'></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr {% if form.q23_1.errors %}class="error"{% endif %}>
+                                        <td><a href='http://www.gap.com' target='_blank'>Gap.com</a></td>
+                                        {% for subfield in form.q23_1 %}
+                                        <td>
+                                            {{ subfield }}
+                                        </td>
+                                        {% endfor %}
+                                        <td>
+                                            {% if form.q23_1.errors %}
+                                            <div class="control-group error">
+                                                {% for error in form.q23_1.errors %}
+                                                <span class="help-inline">{{ error }}</span>
+                                                {% endfor %}
+                                            </div>
+                                            {% endif %}
+                                        </td>
+                                    </tr>
+                                    <tr {% if form.q23_2.errors %}class="error"{% endif %}>
+                                        <td><a href="#" data-placement="right" data-toggle="popover" data-content="1 = least important <br/> 7 = most important" data-original-title="Importance rating">Importance</a></td>
+                                        {% for subfield in form.q23_2 %}
+                                        <td>
+                                            {{ subfield }}
+                                        </td>
+                                        {% endfor %}
+                                        <td>
+                                            {% if form.q23_2.errors %}
+                                            <div class="control-group error">
+                                                {% for error in form.q23_2.errors %}
+                                                <span class="help-inline">{{ error }}</span>
+                                                {% endfor %}
+                                            </div>
+                                            {% endif %}
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </li>
+                        <li><a title="" data-placement="right" data-toggle="tooltip" href="#" data-original-title="Is it easy to communicate with other appropriate parties, e.g. the site's organizers or specific departments of the organization?">Makes it easy to communicate with the organization</a>
+                            <table class="table table-condensed">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>1</th>
+                                        <th>2</th>
+                                        <th>3</th>
+                                        <th>4</th>
+                                        <th>5</th>
+                                        <th>6</th>
+                                        <th>7</th>
+                                        <th>n/a</th>
+                                        <th style='width: 150px'></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr {% if form.q24_1.errors %}class="error"{% endif %}>
+                                        <td><a href='http://www.gap.com' target='_blank'>Gap.com</a></td>
+                                        {% for subfield in form.q24_1 %}
+                                        <td>
+                                            {{ subfield }}
+                                        </td>
+                                        {% endfor %}
+                                        <td>
+                                            {% if form.q24_1.errors %}
+                                            <div class="control-group error">
+                                                {% for error in form.q24_1.errors %}
+                                                <span class="help-inline">{{ error }}</span>
+                                                {% endfor %}
+                                            </div>
+                                            {% endif %}
+                                        </td>
+                                    </tr>
+                                    <tr {% if form.q24_2.errors %}class="error"{% endif %}>
+                                        <td><a href="#" data-placement="right" data-toggle="popover" data-content="1 = least important <br/> 7 = most important" data-original-title="Importance rating">Importance</a></td>
+                                        {% for subfield in form.q24_2 %}
+                                        <td>
+                                            {{ subfield }}
+                                        </td>
+                                        {% endfor %}
+                                        <td>
+                                            {% if form.q24_2.errors %}
+                                            <div class="control-group error">
+                                                {% for error in form.q24_2.errors %}
+                                                <span class="help-inline">{{ error }}</span>
+                                                {% endfor %}
+                                            </div>
+                                            {% endif %}
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </li>
+                        <li><a title="" data-placement="right" data-toggle="tooltip" href="#" data-original-title="Do you feel assured that the goods or services ordered will be supplied as promised and when promised?">I feel confident that goods/services will be delivered as promised</a>
+                            <table class="table table-condensed">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>1</th>
+                                        <th>2</th>
+                                        <th>3</th>
+                                        <th>4</th>
+                                        <th>5</th>
+                                        <th>6</th>
+                                        <th>7</th>
+                                        <th>n/a</th>
+                                        <th style='width: 150px'></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr {% if form.q25_1.errors %}class="error"{% endif %}>
+                                        <td><a href='http://www.gap.com' target='_blank'>Gap.com</a></td>
+                                        {% for subfield in form.q25_1 %}
+                                        <td>
+                                            {{ subfield }}
+                                        </td>
+                                        {% endfor %}
+                                        <td>
+                                            {% if form.q25_1.errors %}
+                                            <div class="control-group error">
+                                                {% for error in form.q25_1.errors %}
+                                                <span class="help-inline">{{ error }}</span>
+                                                {% endfor %}
+                                            </div>
+                                            {% endif %}
+                                        </td>
+                                    </tr>
+                                    <tr {% if form.q25_2.errors %}class="error"{% endif %}>
+                                        <td><a href="#" data-placement="right" data-toggle="popover" data-content="1 = least important <br/> 7 = most important" data-original-title="Importance rating">Importance</a></td>
+                                        {% for subfield in form.q25_2 %}
+                                        <td>
+                                            {{ subfield }}
+                                        </td>
+                                        {% endfor %}
+                                        <td>
+                                            {% if form.q25_2.errors %}
+                                            <div class="control-group error">
+                                                {% for error in form.q25_2.errors %}
+                                                <span class="help-inline">{{ error }}</span>
+                                                {% endfor %}
+                                            </div>
+                                            {% endif %}
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </li>
+                        <li><a title="" data-placement="right" data-toggle="tooltip" href="#" data-original-title="Will you buy/continue to buy goods and services from this site?">I intend to transact with this site in the future</a>
+                            <table class="table table-condensed">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>1</th>
+                                        <th>2</th>
+                                        <th>3</th>
+                                        <th>4</th>
+                                        <th>5</th>
+                                        <th>6</th>
+                                        <th>7</th>
+                                        <th>n/a</th>
+                                        <th style='width: 150px'></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr {% if form.q26_1.errors %}class="error"{% endif %}>
+                                        <td><a href='http://www.gap.com' target='_blank'>Gap.com</a></td>
+                                        {% for subfield in form.q26_1 %}
+                                        <td>
+                                            {{ subfield }}
+                                        </td>
+                                        {% endfor %}
+                                        <td>
+                                            {% if form.q26_1.errors %}
+                                            <div class="control-group error">
+                                                {% for error in form.q26_1.errors %}
+                                                <span class="help-inline">{{ error }}</span>
+                                                {% endfor %}
+                                            </div>
+                                            {% endif %}
+                                        </td>
+                                    </tr>
+                                    <tr {% if form.q26_2.errors %}class="error"{% endif %}>
+                                        <td><a href="#" data-placement="right" data-toggle="popover" data-content="1 = least important <br/> 7 = most important" data-original-title="Importance rating">Importance</a></td>
+                                        {% for subfield in form.q26_2 %}
+                                        <td>
+                                            {{ subfield }}
+                                        </td>
+                                        {% endfor %}
+                                        <td>
+                                            {% if form.q26_2.errors %}
+                                            <div class="control-group error">
+                                                {% for error in form.q26_2.errors %}
+                                                <span class="help-inline">{{ error }}</span>
+                                                {% endfor %}
+                                            </div>
+                                            {% endif %}
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </li>
+                        <li><a title="" data-placement="right" data-toggle="tooltip" href="#" data-original-title="How do you rate the Web-site overall?">What is your overall view of this Web-site, where 1=very poor through 7=excellent)</a>
+                            <table class="table table-condensed">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>1</th>
+                                        <th>2</th>
+                                        <th>3</th>
+                                        <th>4</th>
+                                        <th>5</th>
+                                        <th>6</th>
+                                        <th>7</th>
+                                        <th>n/a</th>
+                                        <th style='width: 150px'></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr {% if form.q27_1.errors %}class="error"{% endif %}>
+                                        <td><a href='http://www.gap.com' target='_blank'>Gap.com</a></td>
+                                        {% for subfield in form.q27_1 %}
+                                        <td>
+                                            {{ subfield }}
+                                        </td>
+                                        {% endfor %}
+                                        <td>
+                                            {% if form.q27_1.errors %}
+                                            <div class="control-group error">
+                                                {% for error in form.q27_1.errors %}
+                                                <span class="help-inline">{{ error }}</span>
+                                                {% endfor %}
+                                            </div>
+                                            {% endif %}
+                                        </td>
+                                    </tr>
+                                    <tr {% if form.q27_2.errors %}class="error"{% endif %}>
+                                        <td><a href="#" data-placement="right" data-toggle="popover" data-content="1 = least important <br/> 7 = most important" data-original-title="Importance rating">Importance</a></td>
+                                        {% for subfield in form.q27_2 %}
+                                        <td>
+                                            {{ subfield }}
+                                        </td>
+                                        {% endfor %}
+                                        <td>
+                                            {% if form.q27_2.errors %}
+                                            <div class="control-group error">
+                                                {% for error in form.q27_2.errors %}
+                                                <span class="help-inline">{{ error }}</span>
+                                                {% endfor %}
+                                            </div>
+                                            {% endif %}
+                                        </td>
                                     </tr>
                                 </tbody>
                             </table>
                         </li>
                     </ol>
-                    {% for subfield in form.sex %}
-                    <label class="checkbox inline">
-                         {{ subfield }} {{ subfield.label }}
-                    </label>
-                    {% endfor %}
-                    <div class="control-group">
+                    <p><strong>Please tell us about yourself:</strong></p>
+                    <div class="control-group {% if form.internet_usage.errors %}error{% endif %}">
+                        <label class="control-label" for="inputInternetUsage">{{ form.internet_usage.label }}</label>
+                        <div class="controls">
+                            {{ form.internet_usage|safe }}
+                         {% if form.internet_usage.errors %}
+                         {% for error in form.internet_usage.errors %}
+                         <span class="help-inline">{{ error }}</span>
+                         {% endfor %}
+                         {% endif %}
+                     </div>
+                 </div>
+                 <div class="control-group {% if form.internet_frequency.errors %}error{% endif %}">
+                        <label class="control-label" for="inputInternetFrequency">{{ form.internet_frequency.label }}</label>
+                        <div class="controls">
+                            {{ form.internet_frequency|safe }}
+                         {% if form.internet_frequency.errors %}
+                         {% for error in form.internet_frequency.errors %}
+                         <span class="help-inline">{{ error }}</span>
+                         {% endfor %}
+                         {% endif %}
+                     </div>
+                 </div>
+                 <div class="control-group {% if form.purchase_online.errors %}error{% endif %}">
+                        <label class="control-label" for="inputPurchaseOnline">{{ form.purchase_online.label }}</label>
+                        <div class="controls">
+                            {% for subfield in form.purchase_online %}
+                            <label class="checkbox inline purchase">
+                             {{ subfield }} {{ subfield.label }}
+                         </label>
+                         {% endfor %}
+                         {% if form.purchase_online.errors %}
+                         {% for error in form.purchase_online.errors %}
+                         <span class="help-inline">{{ error }}</span>
+                         {% endfor %}
+                         {% endif %}
+                     </div>
+                 </div>
+                 <div class="control-group purchase-frequency {% if form.purchase_frequency.errors %}error{% endif %}">
+                        <label class="control-label" for="inputPurchaseFrequency">{{ form.purchase_frequency.label }}</label>
+                        <div class="controls">
+                        {{ form.purchase_frequency|safe }}
+                         {% if form.purchase_frequency.errors %}
+                         {% for error in form.purchase_frequency.errors %}
+                         <span class="help-inline">{{ error }}</span>
+                         {% endfor %}
+                         {% endif %}
+                     </div>
+                 </div>
+                 <div class="control-group last-purchase {% if form.last_purchase.errors %}error{% endif %}">
+                        <label class="control-label" for="inputLastPurchase">{{ form.last_purchase.label }}</label>
+                        <div class="controls">
+                            {% for subfield in form.last_purchase %}
+                            <label class="checkbox inline purchase">
+                             {{ subfield }} {{ subfield.label }}
+                         </label>
+                         {% endfor %}
+                         {% if form.last_purchase.errors %}
+                         {% for error in form.last_purchase.errors %}
+                         <span class="help-inline">{{ error }}</span>
+                         {% endfor %}
+                         {% endif %}
+                     </div>
+                 </div>
+                 <div class="control-group {% if form.employment_status.errors %}error{% endif %}">
+                        <label class="control-label" for="inputEmploymentStatus">{{ form.employment_status.label }}</label>
+                        <div class="controls">
+                        {{ form.employment_status|safe }}
+                         {% if form.employment_status.errors %}
+                         {% for error in form.employment_status.errors %}
+                         <span class="help-inline">{{ error }}</span>
+                         {% endfor %}
+                         {% endif %}
+                     </div>
+                 </div>
+                 <div class="control-group {% if form.income_range.errors %}error{% endif %}">
+                        <label class="control-label" for="inputIncomeRange">{{ form.income_range.label }}</label>
+                        <div class="controls">
+                        {{ form.income_range|safe }}
+                         {% if form.income_range.errors %}
+                         {% for error in form.income_range.errors %}
+                         <span class="help-inline">{{ error }}</span>
+                         {% endfor %}
+                         {% endif %}
+                     </div>
+                 </div>
+                    <div class="control-group {% if form.sex.errors %}error{% endif %}">
+                        <label class="control-label" for="inputSex">{{ form.sex.label }}</label>
+                        <div class="controls">
+                            {% for subfield in form.sex %}
+                            <label class="checkbox inline sex">
+                             {{ subfield }} {{ subfield.label }}
+                         </label>
+                         {% endfor %}
+                         {% if form.sex.errors %}
+                         {% for error in form.sex.errors %}
+                         <span class="help-inline">{{ error }}</span>
+                         {% endfor %}
+                         {% endif %}
+                     </div>
+                 </div>
+                 <div class="control-group {% if form.age.errors %}error{% endif %}">
+                        <label class="control-label" for="inputAge">{{ form.age.label }}</label>
+                        <div class="controls">
+                            {{ form.age|safe }}
+                         {% if form.age.errors %}
+                         {% for error in form.age.errors %}
+                         <span class="help-inline">{{ error }}</span>
+                         {% endfor %}
+                         {% endif %}
+                     </div>
+                 </div>
+                 <div class="control-group {% if form.martial_status.errors %}error{% endif %}">
+                        <label class="control-label" for="inputMartialStatus">{{ form.martial_status.label }}</label>
+                        <div class="controls">
+                            {{ form.martial_status|safe }}
+                         {% if form.martial_status.errors %}
+                         {% for error in form.martial_status.errors %}
+                         <span class="help-inline">{{ error }}</span>
+                         {% endfor %}
+                         {% endif %}
+                     </div>
+                 </div>
+                 <div class="control-group {% if form.comment.errors %}error{% endif %}">
+                        <label class="control-label" for="inputComment">{{ form.comment.label }}</label>
+                        <div class="controls">
+                           {{ form.comment|safe }}
+                     </div>
+                 </div>
+                 <div class="control-group">
                     <div class="controls">
                         <button class="btn">Reset</button>
                         <input class="btn btn-primary" type="submit" value="Submit Questionnaire"/>
                     </div>
                 </div>
-                </fieldset>
-            </form>
-        </div>
-        {% endblock content %}
+            </fieldset>
+        </form>
+    </div>
+    {% endblock content %}
+
+    {% block tail_script %}
+    <script>
+    $("a[data-toggle=popover]").popover({html: true, trigger: 'hover'}).click(function(e) {e.preventDefault()});
+    $("a[data-toggle=tooltip]").tooltip()
+    $('input[name="purchase_online"]').click(function () {
+
+if ($(this).val() == 'false') {
+ $('.purchase-frequency').hide();
+$('.last-purchase').hide();
+} else if ($(this).val() == 'true'){
+$('.purchase-frequency').show();
+$('.last-purchase').show();
+}
+    });
+    </script>
+{% endblock %}

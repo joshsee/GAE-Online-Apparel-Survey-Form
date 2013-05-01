@@ -25,6 +25,9 @@ app.add_url_rule('/home', 'home', view_func=views.home)
 # New Survey
 app.add_url_rule('/survey', 'survey', view_func=views.survey, methods=['GET', 'POST'])
 
+# Thank You
+app.add_url_rule('/thankyou', 'thankyou', view_func=views.thankyou)
+
 # About Us page
 #app.add_url_rule('/about', 'about', view_func=views.about)
 

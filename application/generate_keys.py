@@ -18,6 +18,7 @@ Use the '-f' flag to force the new keys to be written to the file
 
 import string
 import os.path
+import glob
 
 from optparse import OptionParser
 from random import choice
@@ -35,10 +36,8 @@ SESSION_KEY = '$session_key'
 
 # Get options from command line
 parser = OptionParser()
-parser.add_option("-f", "--force", dest="force", 
-    help="force overwrite of existing secret_keys file", action="store_true")
-parser.add_option("-r", "--randomness", dest="randomness", 
-    help="length (randomness) of generated key; default = 24", default=24)
+parser.add_option("-f", "--force", dest="force", help="force overwrite of existing secret_keys file", action="store_true")
+parser.add_option("-r", "--randomness", dest="randomness", help="length (randomness) of generated key; default = 24", default=24)
 (options, args) = parser.parse_args()
 
 

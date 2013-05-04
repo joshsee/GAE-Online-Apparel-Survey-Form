@@ -93,6 +93,6 @@ class Survey(db.Model):
     q25_1 = db.RatingProperty(required=True)
     q25_2 = db.RatingProperty(required=True)
     q26_1 = db.RatingProperty(required=True)
-    q26_2 = db.RatingProperty(required=True)
+    q26_2 = db.RatingProperty()
     q27_1 = db.RatingProperty(required=True)
-    q27_2 = db.RatingProperty(required=True)
+    q27_2 = db.RatingProperty()

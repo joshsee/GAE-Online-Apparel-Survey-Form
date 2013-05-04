@@ -110,9 +110,7 @@ def survey():
             q25_1=int(form.q25_1.data),
             q25_2=int(form.q25_2.data),
             q26_1=int(form.q26_1.data),
-            q26_2=int(form.q26_2.data),
             q27_1=int(form.q27_1.data),
-            q27_2=int(form.q27_2.data)
         )
         try:
             survey.put()

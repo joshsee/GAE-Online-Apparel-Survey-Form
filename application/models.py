@@ -34,6 +34,7 @@ class Survey(db.Model):
     timestamp = db.DateTimeProperty(auto_now_add=True)
     sex = db.StringProperty(required=True, choices=set(["male", "female"]))
     comment = db.TextProperty()
+    age = db.CategoryProperty()
     martial_status = db.CategoryProperty(required=True)
     internet_usage = db.CategoryProperty(required=True)
     internet_frequency = db.CategoryProperty(required=True)

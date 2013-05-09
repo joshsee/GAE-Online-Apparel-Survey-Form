@@ -121,6 +121,20 @@ def survey():
             return redirect(url_for('home'))
     return render_template('survey.html', form=form)
 
+
+@admin_required
+def admin():
+    return redirect(url_for('surveyanswers'))
+
+
+@admin_required
+def survey_answers():
+    surveys = Survey.all()
+    surveys.order('timestamp')
+    surveys.fetch(limit=5)
+
+    return render_template('survey_answers.html', surveys=surveys)
+
 """
 @admin_required
 def list_apps():

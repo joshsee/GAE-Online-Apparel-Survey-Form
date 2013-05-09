@@ -28,6 +28,12 @@ app.add_url_rule('/survey', 'survey', view_func=views.survey, methods=['GET', 'P
 # Thank You
 app.add_url_rule('/thankyou', 'thankyou', view_func=views.thankyou)
 
+# Thank You
+app.add_url_rule('/admin', 'admin', view_func=views.admin)
+
+# Thank You
+app.add_url_rule('/survey_answers', 'surveyanswers', view_func=views.survey_answers)
+
 # About Us page
 #app.add_url_rule('/about', 'about', view_func=views.about)
 
@@ -89,8 +95,8 @@ app.add_url_rule('/thankyou', 'thankyou', view_func=views.thankyou)
 def page_not_found(e):
     return render_template('404.html'), 404
 
+
 # Handle 500 errors
 @app.errorhandler(500)
 def server_error(e):
     return render_template('500.html'), 500
-

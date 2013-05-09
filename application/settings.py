@@ -3,7 +3,7 @@ settings.py
 
 Configuration for Flask app
 
-Important: Place your keys in the secret_keys.py module, 
+Important: Place your keys in the secret_keys.py module,
            which should be kept out of version control.
 
 """
@@ -28,4 +28,6 @@ CSRF_ENABLED = True
 
 ALLOWED_EXTENSIONS = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'])
 UPLOAD_FOLDER = '/application/static/media'
+USERNAME = 'admin'
+PASSWORD = 'default'
 

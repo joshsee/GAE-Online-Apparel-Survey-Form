@@ -1,0 +1,230 @@
+{% extends "base.html" %}
+
+{% block style_block %}
+    <style type="text/css">
+        table.table { width: 100%; }
+    </style>
+{% endblock %}
+
+{% block content %}
+    <h1 id="">Survey Answers</h1>
+    <div>&nbsp;</div>
+    <table class="table table-bordered table-condensed">
+        <thead>
+            <tr>
+                <th>No.</th>
+                <th>Q1-1</th>
+				<th>Q1-2</th>
+                <th>Q2-1</th>
+                <th>Q2-2</th>
+                <th>Q3-1</th>
+                <th>Q3-2</th>
+                <th>Q4-1</th>
+                <th>Q4-2</th>
+                <th>Q5-1</th>
+                <th>Q5-2</th>
+                <th>Q6-1</th>
+                <th>Q6-2</th>
+                <th>Q7-1</th>
+                <th>Q7-2</th>
+                <th>Q8-1</th>
+                <th>Q8-2</th>
+                <th>Q9-1</th>
+                <th>Q9-2</th>
+                <th>Q10-1</th>
+                <th>Q10-2</th>
+                <th>Q11-1</th>
+                <th>Q11-2</th>
+                <th>Q12-1</th>
+                <th>Q12-2</th>
+                <th>Q13-1</th>
+                <th>Q13-2</th>
+                <th>Q14-1</th>
+                <th>Q14-2</th>
+                <th>Q15-1</th>
+                <th>Q15-2</th>
+                <th>Q16-1</th>
+                <th>Q16-2</th>
+                <th>Q17-1</th>
+                <th>Q17-2</th>
+                <th>Q18-1</th>
+                <th>Q18-2</th>
+                <th>Q19-1</th>
+                <th>Q19-2</th>
+                <th>Q20-1</th>
+                <th>Q20-2</th>
+                <th>Q21-1</th>
+                <th>Q21-2</th>
+                <th>Q22-1</th>
+                <th>Q22-2</th>
+                <th>Q23-1</th>
+                <th>Q23-2</th>
+                <th>Q24-1</th>
+                <th>Q24-2</th>
+                <th>Q25-1</th>
+                <th>Q25-2</th>
+                <th>Q26-1</th>
+                <th>Q26-2</th>
+                <th>Q27-1</th>
+                <th>Q27-2</th>
+                <th>Internet Usage</th>
+                <th>Internet Frequency</th>
+                <th>Purchase Online</th>
+                <th>Purchase Frequency</th>
+                <th>Last Purchase 30 days</th>
+                <th>Employment Status</th>
+                <th>Income Range</th>
+                <th>Sex</th>
+                <th>Age</th>
+                <th>Martial Status</th>
+                <th>Comment</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for survey in surveys %}
+            {% set survey_id = survey.key().id() %}
+            <tr>
+                <td><strong>{{ loop.index }}</strong></td>
+                <td>{{ survey.q01_1 }}</td>
+                <td>{{ survey.q01_2 }}</td>
+                <td>{{ survey.q02_1 }}</td>
+                <td>{{ survey.q02_2 }}</td>
+                <td>{{ survey.q03_1 }}</td>
+                <td>{{ survey.q03_2 }}</td>
+                <td>{{ survey.q04_1 }}</td>
+                <td>{{ survey.q04_2 }}</td>
+                <td>{{ survey.q05_1 }}</td>
+                <td>{{ survey.q05_2 }}</td>
+                <td>{{ survey.q06_1 }}</td>
+                <td>{{ survey.q06_2 }}</td>
+                <td>{{ survey.q07_1 }}</td>
+                <td>{{ survey.q07_2 }}</td>
+                <td>{{ survey.q08_1 }}</td>
+                <td>{{ survey.q08_2 }}</td>
+                <td>{{ survey.q09_1 }}</td>
+                <td>{{ survey.q09_2 }}</td>
+                <td>{{ survey.q10_1 }}</td>
+                <td>{{ survey.q10_2 }}</td>
+                <td>{{ survey.q11_1 }}</td>
+                <td>{{ survey.q11_2 }}</td>
+                <td>{{ survey.q12_1 }}</td>
+                <td>{{ survey.q12_2 }}</td>
+                <td>{{ survey.q13_1 }}</td>
+                <td>{{ survey.q13_2 }}</td>
+                <td>{{ survey.q14_1 }}</td>
+                <td>{{ survey.q14_2 }}</td>
+                <td>{{ survey.q15_1 }}</td>
+                <td>{{ survey.q15_2 }}</td>
+                <td>{{ survey.q16_1 }}</td>
+                <td>{{ survey.q16_2 }}</td>
+                <td>{{ survey.q17_1 }}</td>
+                <td>{{ survey.q17_2 }}</td>
+                <td>{{ survey.q18_1 }}</td>
+                <td>{{ survey.q18_2 }}</td>
+                <td>{{ survey.q19_1 }}</td>
+                <td>{{ survey.q19_2 }}</td>
+                <td>{{ survey.q20_1 }}</td>
+                <td>{{ survey.q20_2 }}</td>
+                <td>{{ survey.q21_1 }}</td>
+                <td>{{ survey.q21_2 }}</td>
+                <td>{{ survey.q22_1 }}</td>
+                <td>{{ survey.q22_2 }}</td>
+                <td>{{ survey.q23_1 }}</td>
+                <td>{{ survey.q23_2 }}</td>
+                <td>{{ survey.q24_1 }}</td>
+                <td>{{ survey.q24_2 }}</td>
+                <td>{{ survey.q25_1 }}</td>
+                <td>{{ survey.q25_2 }}</td>
+                <td>{{ survey.q26_1 }}</td>
+                <td>{{ survey.q26_2 }}</td>
+                <td>{{ survey.q27_1 }}</td>
+                <td>{{ survey.q27_2 }}</td>
+
+                {% if survey.internet_usage == 'less 1' %}
+                <td>less than 1 year</td>
+                {% elif survey.internet_usage == '1-5' %}
+                <td>1 - 5 years</td>
+                {% elif survey.internet_usage == 'above 5' %}
+                <td>5 or above</td>
+                {% else %}
+                <td>{{ survey.internet_usage }}</td>
+                {% endif %}
+
+                {% if survey.internet_frequency == 'everyday' %}
+                <td>Everyday</td>
+                {% elif survey.internet_frequency == 'few times a week' %}
+                <td>Few times a day</td>
+                {% elif survey.internet_frequency == 'less than 5 times a month' %}
+                <td>Less than 5 times a month</td>
+                {% else %}
+                <td>{{ survey.internet_frequency }}</td>
+                {% endif %}
+
+                {% if survey.purchase_online == 'true' %}
+                <td>Yes</td>
+                {% elif survey.purchase_online == 'false' %}
+                <td>No</td>
+                {% else %}
+                <td>{{ survey.purchase_online }}</td>
+                {% endif %}
+
+                {% if survey.purchase_frequency == 'every week' %}
+                <td>Every week</td>
+                {% elif survey.purchase_frequency == 'every month' %}
+                <td>Every month</td>
+                {% elif survey.purchase_frequency == 'every season' %}
+                <td>Every season</td>
+                {% elif survey.purchase_frequency == 'not available' %}
+                <td>Not available</td>
+                {% else %}
+                <td>{{ survey.purchase_frequency }}</td>
+                {% endif %}
+
+                {% if survey.last_purchase == 'true' %}
+                <td>Yes</td>
+                {% elif survey.last_purchase == 'false' %}
+                <td>No</td>
+                {% else %}
+                <td>{{ survey.last_purchase }}</td>
+                {% endif %}
+
+                {% if survey.employment_status == 'employed' %}
+                <td>Employed</td>
+                {% elif survey.employment_status == 'unemployed' %}
+                <td>Unemployed</td>
+                {% elif survey.employment_status == 'self-employed' %}
+                <td>Self-employed</td>
+                {% else %}
+                <td>{{ survey.employment_status }}</td>
+                {% endif %}
+
+
+                {% if survey.income_range == '0' %}
+                <td>0 - 10,000</td>
+                {% elif survey.income_range == '1' %}
+                <td>10,001 - 20,000</td>
+                {% elif survey.income_range == '2' %}
+                <td>20,001 - 30,000</td>
+                {% elif survey.income_range == '3' %}
+                <td>30,001 - 40,000</td>
+                {% elif survey.income_range == '4' %}
+                <td>40,001 & above</td>
+                {% else %}
+                <td>{{ survey.income_range }}</td>
+                {% endif %}
+
+                <td>{{ survey.sex }}</td>
+                <td>{{ survey.age }}</td>
+                <td>{{ survey.martial_status }}</td>
+                <td>{{ survey.comment }}</td>
+            </tr>
+            {% else %}
+            <tr><td colspan="27">No one fills survey yet</td></tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock content %}
+
+{% block tail_script %}
+{% endblock %}

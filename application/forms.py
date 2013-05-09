@@ -78,7 +78,7 @@ class SurveyForm(wtf.Form):
     internet_usage = wtf.SelectField('How long have you been using internet ?', choices=[('less 1', 'Less than 1 year'), ('1-5', '1 - 5 years'), ('above 5', '5 or above')], validators=[validators.Required()])
     internet_frequency = wtf.SelectField('How often do you use internet ?', choices=[('everyday', 'Everyday'), ('few times a week', 'Few times a week'), ('less than 5 times a month', 'Less than 5 times a month')], validators=[validators.Required()])
     purchase_online = wtf.RadioField('Have you ever purchased apparel online ?', choices=[('true', 'Yes'), ('false', 'No')], validators=[validators.Required()])
-    purchase_frequency = wtf.SelectField('How often do you purchase apparel online ?', choices=[('every week', 'Every week'), ('every month', 'Every month'), ('every season', 'Every season'), ('not available', 'Not available')], validators=[validators.Optional()])
+    purchase_frequency = wtf.SelectField('How often do you purchase apparel online ?', choices=[('every week', 'Every week'), ('every month', 'Every month'), ('every season', 'Every season'), ('random', 'Random')], validators=[validators.Optional()])
     last_purchase = wtf.RadioField('Have you purchased apparel online in the past 30 days ?', choices=[('true', 'Yes'), ('false', 'No')], validators=[validators.Optional()])
     employment_status = wtf.SelectField('Employment Status', choices=[('employed', 'Employed'), ('unemployed', 'Unemployed'), ('self-employed', 'Self-employed')], validators=[validators.Required()])
     income_range = wtf.SelectField('Income range (HKD)', choices=[('0', '0 - 10,000'), ('1', '10,001 - 20,000'), ('2', '20,001 - 30,000'), ('3', '30,001 - 40,000'), ('4', '40,001 & above')], validators=[validators.Required()])

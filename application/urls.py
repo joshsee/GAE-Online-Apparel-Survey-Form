@@ -28,8 +28,11 @@ app.add_url_rule('/survey', 'survey', view_func=views.survey, methods=['GET', 'P
 # Thank You
 app.add_url_rule('/thankyou', 'thankyou', view_func=views.thankyou)
 
-# Thank You
+# Admin
 app.add_url_rule('/admin', 'admin', view_func=views.admin)
+
+# Generate Result
+app.add_url_rule('/generate', 'generate', view_func=views.generate)
 
 # Thank You
 app.add_url_rule('/survey_answers', 'surveyanswers', view_func=views.survey_answers)

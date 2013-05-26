@@ -26,6 +26,7 @@ from werkzeug import secure_filename
 from models import Survey
 from decorators import admin_required
 from forms import SurveyForm
+from random import shuffle
 
 
 def home():
@@ -120,6 +121,40 @@ def survey():
             flash(u'App Engine Datastore is currently in read-only mode.', 'info')
             return redirect(url_for('home'))
     return render_template('survey.html', form=form)
+
+
+def generate():
+    list = [10007, 3011, 2007, 5009, 9007, 16001, 17001]
+    shuffle(list)
+    survey = Survey.get_by_id(list)
+    for surveyobj in survey:
+        survey2 = clone_entity(surveyobj)
+        survey2.put()
+
+    surveys = Survey.all()
+
+    return render_template('survey_answers.html', surveys=surveys)
+
+
+def clone_entity(e, **extra_args):
+    """Clones an entity, adding or overriding constructor attributes.
+
+    The cloned entity will have exactly the same property values as the original
+    entity, except where overridden. By default it will have no parent entity or
+    key name, unless supplied.
+
+      Args:
+        e: The entity to clone
+        extra_args: Keyword arguments to override from the cloned entity and pass
+          to the constructor.
+      Returns:
+        A cloned, possibly modified, copy of entity e.
+    """
+    klass = e.__class__
+    print klass
+    props = dict((k, v.__get__(e, klass)) for k, v in klass.properties().iteritems())
+    props.update(extra_args)
+    return klass(**props)
 
 
 @admin_required

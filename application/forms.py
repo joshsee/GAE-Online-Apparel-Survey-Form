@@ -73,7 +73,7 @@ class SurveyForm(wtf.Form):
     q27_1 = wtf.RadioField('GAP', choices=[('1', '1'), ('2', '2'), ('3', '3'), ('4', '4'), ('5', '5'), ('6', '6'), ('7', '7'), ('8', '8')], validators=[validators.Required()])
     sex = wtf.RadioField('Sex', choices=[('male', 'Male'), ('female', 'Female')], validators=[validators.Required()])
     comment = wtf.TextAreaField('Comment', validators=[validators.Optional()])
-    martial_status = wtf.SelectField('Martial Status', choices=[('single', 'Single'), ('married', 'Married'), ('divorced', 'Divorced'), ('other', 'Other')], validators=[validators.Required()])
+    martial_status = wtf.SelectField('Marital Status', choices=[('single', 'Single'), ('married', 'Married'), ('divorced', 'Divorced'), ('other', 'Other')], validators=[validators.Required()])
     age = wtf.SelectField('Age', choices=[('18-24', '18 - 24'), ('25-31', '25 - 31'), ('32-38', '32 - 38'), ('above 39', '39 above')], validators=[validators.Required()])
     internet_usage = wtf.SelectField('How long have you been using internet ?', choices=[('less 1', 'Less than 1 year'), ('1-5', '1 - 5 years'), ('above 5', '5 or above')], validators=[validators.Required()])
     internet_frequency = wtf.SelectField('How often do you use internet ?', choices=[('everyday', 'Everyday'), ('few times a week', 'Few times a week'), ('less than 5 times a month', 'Less than 5 times a month')], validators=[validators.Required()])

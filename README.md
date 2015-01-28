@@ -1,7 +1,7 @@
 Online Apparel Shop Survey Form
 =================
 
-This is a Survey form targeting online apparel shop written with Flaskr Framework and deployable at GAE (Google App Engine)
+This is a survey form targeting online apparel shop written in Flaskr Framework and deployable at GAE (Google App Engine)
 
 Usage
 -------

@@ -7,6 +7,9 @@ Usage
 -------
 Just deploy at GAE
 
+Live
+-------
+http://apparelshopsurvey.appspot.com/
 
 Authors
 -------
